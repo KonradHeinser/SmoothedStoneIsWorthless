@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
     <Operation Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "SmoothedSandstone"]/statBases/MarketValue</xpath>
-        <value>
-            <MarketValue>0</MarketValue>
-        </value>
-    </Operation>
-    <Operation Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "SmoothedGranite"]/statBases/MarketValue</xpath>
-        <value>
-            <MarketValue>0</MarketValue>
-        </value>
-    </Operation>
-    <Operation Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "SmoothedLimestone"]/statBases/MarketValue</xpath>
-        <value>
-            <MarketValue>0</MarketValue>
-        </value>
-    </Operation>
-    <Operation Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "SmoothedSlate"]/statBases/MarketValue</xpath>
-        <value>
-            <MarketValue>0</MarketValue>
-        </value>
-    </Operation>
-    <Operation Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "SmoothedMarble"]/statBases/MarketValue</xpath>
+        <xpath>Defs/ThingDef[starts-with(defName,"Smoothed") and contains(uiIconPath,"WallSmooth")]/statBases/MarketValue</xpath>
         <value>
             <MarketValue>0</MarketValue>
         </value>
