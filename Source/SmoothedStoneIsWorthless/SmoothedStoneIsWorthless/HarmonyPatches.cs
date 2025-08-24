@@ -10,18 +10,19 @@ using Verse.AI;
 
 namespace SmoothedStoneIsWorthless
 {
-    [StaticConstructorOnStartup]
-    public static class HarmonyPatches
+    public class SSiWMod : Mod
     {
-        private static readonly Type patchType = typeof(HarmonyPatches);
-        static HarmonyPatches()
+        public SSiWMod(ModContentPack content) : base(content)
         {
-            Harmony harmony = new Harmony("Rimworld.Alite.SSiW.main");
-            harmony.Patch(AccessTools.Method(typeof(TerrainDefGenerator_Stone), nameof(TerrainDefGenerator_Stone.ImpliedTerrainDefs)),
-                postfix: new HarmonyMethod(patchType, nameof(ImpliedTerrainDefsPostfix)));
+            new Harmony("Rimworld.Alite.SSiW.main").PatchAll();
         }
+    }
 
-        public static IEnumerable<TerrainDef> ImpliedTerrainDefsPostfix(IEnumerable<TerrainDef> values)
+    [HarmonyPatch(typeof(TerrainDefGenerator_Stone))]
+    [HarmonyPatch(nameof(TerrainDefGenerator_Stone.ImpliedTerrainDefs))]
+    public static class SSiW_ImpliedTerrainDefs_Postfix
+    {
+        public static IEnumerable<TerrainDef> Postfix(IEnumerable<TerrainDef> values)
         {
             var result = values.ToList();
             foreach (var terrainDef in result)
