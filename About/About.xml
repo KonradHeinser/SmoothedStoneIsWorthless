@@ -8,15 +8,22 @@
     <li>1.5</li>
     <li>1.6</li>
   </supportedVersions>
-  
+    
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+      <steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+
   <description>
 There are many things that confuse me about base Rimworld. Most of them I can find mods to fix them. Other times I fix them with my own mod. This case is the second one, just in case anyone wasn't sure.
 
 Why does smoothed stone have a value attached to it? I get that balance wise, it's to make it more likely that raid strengths will match your strength, but I've never looked at a cave with smooth walls and thought "whoever lives here is clearly doing very well financially". I usually think "if I go in there I might accidentally brain myself on the first slope. Probably sooner", or "if I get attacked by a swarm of radioactive bats when I go in there, do I become batman or manbat?".
 
 This mod reduces the values of smoothed stones from 7 to 0. Is it balanced? Not really. It ends up nerfing raids in the long term if you prefer smoothed stone over constructed walls. Does it make more sense to me? Definitely.
-
-Want to make some of your smooth walls have value still? The [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1986348112]Smooth Walls[url] mod will allow you to replace the natural worthless ones with artificial worthy ones.
 
 [url=https://steamcommunity.com/id/alite/myworkshopfiles/?appid=294100]Easy link to all of my Rimworld mods[/url]
 [url=https://github.com/KonradHeinser/SmoothedStoneIsWorthless][img]https://i.imgur.com/kTkpTOE.png[/img][/url]
