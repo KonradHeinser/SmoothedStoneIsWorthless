@@ -17,18 +17,17 @@ namespace SmoothedStoneIsWorthless
         static HarmonyPatches()
         {
             Harmony harmony = new Harmony("Rimworld.Alite.SSiW.main");
-
             harmony.Patch(AccessTools.Method(typeof(TerrainDefGenerator_Stone), nameof(TerrainDefGenerator_Stone.ImpliedTerrainDefs)),
                 postfix: new HarmonyMethod(patchType, nameof(ImpliedTerrainDefsPostfix)));
         }
 
-        public static void ImpliedTerrainDefsPostfix(ref IEnumerable<TerrainDef> __result)
+        public static IEnumerable<TerrainDef> ImpliedTerrainDefsPostfix(IEnumerable<TerrainDef> values)
         {
-            var result = new List<TerrainDef>(__result);
+            var result = values.ToList();
             foreach (var terrainDef in result)
                 if (terrainDef.defName.EndsWith("_Smooth"))
                     StatUtility.SetStatValueInList(ref terrainDef.statBases, StatDefOf.MarketValue, 0f);
-            __result = result.AsEnumerable();
+            return result;
         }
     }
 }
