@@ -28,7 +28,7 @@ namespace SmoothedStoneIsWorthless
             foreach (var terrainDef in result)
                 if (terrainDef.defName.EndsWith("_Smooth"))
                     StatUtility.SetStatValueInList(ref terrainDef.statBases, StatDefOf.MarketValue, 0f);
-            __result = result;
+            __result = result.AsEnumerable();
         }
     }
 }
