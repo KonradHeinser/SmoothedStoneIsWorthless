@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
 using HarmonyLib;
 using RimWorld;
 using Verse;
-using Verse.AI;
 
 namespace SmoothedStoneIsWorthless
 {
@@ -25,9 +19,8 @@ namespace SmoothedStoneIsWorthless
         public static IEnumerable<TerrainDef> Postfix(IEnumerable<TerrainDef> values)
         {
             var result = values.ToList();
-            foreach (var terrainDef in result)
-                if (terrainDef.defName.EndsWith("_Smooth"))
-                    StatUtility.SetStatValueInList(ref terrainDef.statBases, StatDefOf.MarketValue, 0f);
+            foreach (var terrainDef in result.Where(terrainDef => terrainDef.defName.EndsWith("_Smooth")))
+                StatUtility.SetStatValueInList(ref terrainDef.statBases, StatDefOf.MarketValue, 0f);
             return result;
         }
     }
